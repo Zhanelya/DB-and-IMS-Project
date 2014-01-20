@@ -66,7 +66,7 @@ http://www.windowsazure.com/en-us/documentation/articles/web-sites-php-mysql-dep
     echo "<h3>Your're registered!</h3>";
     }
     // Retrieve data
-    $sql_select = "SELECT * FROM registration_tbl";
+    $sql_select = "SELECT * FROM users";
     $stmt = $conn->query($sql_select);
     $registrants = $stmt->fetchAll(); 
     if(count($registrants) > 0) {
@@ -84,7 +84,7 @@ http://www.windowsazure.com/en-us/documentation/articles/web-sites-php-mysql-dep
     } else {
         echo "<h3>No one is currently registered.</h3>";
     }
-    $conn->close();
+    $conn = null;
 ?>
 </body>
 </html>
