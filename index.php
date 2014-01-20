@@ -84,6 +84,7 @@ http://www.windowsazure.com/en-us/documentation/articles/web-sites-php-mysql-dep
     } else {
         echo "<h3>No one is currently registered.</h3>";
     }
+    $conn->close();
 ?>
 </body>
 </html>
