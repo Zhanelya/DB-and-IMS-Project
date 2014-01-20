@@ -1,3 +1,5 @@
+<!-- Registration source code: partly provided by Windows Azure PHP tutorial:
+http://www.windowsazure.com/en-us/documentation/articles/web-sites-php-mysql-deploy-use-git/-->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
