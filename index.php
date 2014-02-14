@@ -1,10 +1,11 @@
 <!-- Registration source code: partly provided by Windows Azure PHP tutorial:
 http://www.windowsazure.com/en-us/documentation/articles/web-sites-php-mysql-deploy-use-git/-->
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<Title>Registration Form</Title>
-<style type="text/css">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <Title>Registration Form</Title>
+    <style type="text/css">
     body { background-color: #fff; border-top: solid 10px #000;
         color: #333; font-size: .85em; margin: 20; padding: 20;
         font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
@@ -17,13 +18,39 @@ http://www.windowsazure.com/en-us/documentation/articles/web-sites-php-mysql-dep
     th { font-size: 1.2em; text-align: left; border: none; padding-left: 0; }
     td { padding: 0.25em 2em 0.25em 0em; border: 0 none; }
 </style>
+    <link rel="stylesheet" href="//ajax.aspnetcdn.com/ajax/bootstrap/2.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//ajax.aspnetcdn.com/ajax/bootstrap/2.3.1/css/bootstrap-responsive.min.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <script type="text/x-handlebars">
     <?php
         echo "Hello team, this is COMP3013 project";
-    ?>
-<h1>Register here!</h1>
-<p>Fill in your name and email address, then click <strong>Submit</strong> to register.</p>
+    ?>  
+    <div class="navbar">
+        <div class="navbar-inner">
+            <ul class="nav">
+                <li>{{#link-to 'index'}}Home{{/link-to}}</li>
+                <li>{{#link-to 'register'}}Register here!{{/link-to}}</li>
+                <li>{{#link-to 'about'}}About{{/link-to}}</li>
+            </ul>            
+        </div>
+     </div>
+    {{outlet}}
+  </script>
+
+  <script type="text/x-handlebars" id="index">
+    <h2>Welcome</h2>  
+  </script>
+  
+  <script type="text/x-handlebars" id="about">
+    <h2>About</h2>
+  </script>
+  
+  <script type="text/x-handlebars" id="register">
+    <h2>Register</h2>
+    <p>Fill in your name and email address, then click <strong>Submit</strong> to register.</p>
 <form method="post" action="index.php" enctype="multipart/form-data" >
       Name  <input type="text" name="name" id="name"/></br>
       Email <input type="text" name="email" id="email"/></br>
@@ -86,6 +113,13 @@ http://www.windowsazure.com/en-us/documentation/articles/web-sites-php-mysql-dep
     }
     $conn = null;
 ?>
+  </script>
+  
+  <script src="js/libs/jquery-1.10.2.js"></script>
+  <script src="js/libs/handlebars-1.1.2.js"></script>
+  <script src="js/libs/ember-1.3.2.js"></script>
+  <script src="js/app.js"></script>
+  <!-- to activate the test runner, add the "?test" query string parameter -->
+  <script src="tests/runner.js"></script>
 </body>
 </html>
-
