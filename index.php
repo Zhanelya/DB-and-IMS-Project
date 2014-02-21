@@ -52,9 +52,16 @@ http://www.windowsazure.com/en-us/documentation/articles/web-sites-php-mysql-dep
     <h2>Register</h2>
     <p>Fill in your name and email address, then click <strong>Submit</strong> to register.</p>
 <form method="post" action="index.php" enctype="multipart/form-data" >
-      Name  <input type="text" name="name" id="name"/></br>
-      Email <input type="text" name="email" id="email"/></br>
-      <input type="submit" name="submit" value="Submit" />
+      Username  <input type="text" name="name" id="name"/></br>
+      Password  <input type="password" name="password" id="password"/></br>
+      Email <input type="email" name="email" id="email"/></br>
+      Re-enter your email <input type="email" name="email_c" id="email_c"/></br>
+      First Name <input type="text" name="fname" id="fname"/></br>
+      Last Name <input type="text" name="lname" id="lname"/></br>
+      Date of birth <input type="date" name="bday"></br>
+      Gender <input type="radio" name="sex" value="male" id="male">Male
+             <input type="radio" name="sex" value="female" id="female">Female</br>
+      <input type="submit" name="submit" value="Create Account" />
 </form>
 <?php
     // DB connection info
