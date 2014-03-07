@@ -88,13 +88,15 @@ http://www.windowsazure.com/en-us/documentation/articles/web-sites-php-mysql-dep
         $name = $_POST['name'];
         $email = $_POST['email'];
         $date = date("Y-m-d");
+        $password = $_POST['password'];
         // Insert data
-        $sql_insert = "INSERT INTO users (name, email, date) 
-                   VALUES (?,?,?)";
+        $sql_insert = "INSERT INTO users (name, pswd, email, date) 
+                   VALUES (?,?,?,?)";
         $stmt = $conn->prepare($sql_insert);
         $stmt->bindValue(1, $name);
-        $stmt->bindValue(2, $email);
-        $stmt->bindValue(3, $date);
+        $stmt->bindValue(2, $password);
+        $stmt->bindValue(3, $email);
+        $stmt->bindValue(4, $date);
         $stmt->execute();
     }
     catch(Exception $e) {
