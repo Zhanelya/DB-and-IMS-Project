@@ -4,7 +4,7 @@ http://www.windowsazure.com/en-us/documentation/articles/web-sites-php-mysql-dep
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <Title>Registration Form</Title>
+    <Title>SocialNet</Title>
     <style type="text/css">
     body { background-color: #fff; 
            color: #333; font-size: .85em; margin: 20; padding: 20;
