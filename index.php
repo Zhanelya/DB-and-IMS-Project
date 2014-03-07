@@ -29,12 +29,12 @@ http://www.windowsazure.com/en-us/documentation/articles/web-sites-php-mysql-dep
         <div class="navbar-inner" >
             <ul class="nav">
                 <li>{{#link-to 'index'}}Home{{/link-to}}</li>
-                <li>{{#link-to 'register'}}Register here!{{/link-to}}</li>
-                <li>{{#link-to 'about'}}About{{/link-to}}</li>
+                <li>{{#link-to 'register'}}Register{{/link-to}}</li>
+                <li>{{#link-to 'login'}}Login{{/link-to}}</li>
             </ul>            
         </div>
      </div>
-     
+    
      <article class="container-fluid;text-align:right">
         {{outlet}}
      </article>
@@ -42,10 +42,6 @@ http://www.windowsazure.com/en-us/documentation/articles/web-sites-php-mysql-dep
 
   <script type="text/x-handlebars" id="index">
     <h2>Welcome</h2>  
-  </script>
-  
-  <script type="text/x-handlebars" id="about">
-    <h2>About</h2>
   </script>
   
   <script type="text/x-handlebars" id="register">
@@ -123,6 +119,10 @@ http://www.windowsazure.com/en-us/documentation/articles/web-sites-php-mysql-dep
     }
     $conn = null;
 ?>
+  </script>
+  
+  <script type="text/x-handlebars" id="login">
+    <h2>Login</h2>
   </script>
   
   <script src="js/libs/jquery-1.10.2.js"></script>
