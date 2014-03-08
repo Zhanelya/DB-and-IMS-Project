@@ -47,83 +47,84 @@ http://www.windowsazure.com/en-us/documentation/articles/web-sites-php-mysql-dep
   <script type="text/x-handlebars" id="register">
     <h2>Register</h2>
     <p>Fill in your name and email address, then click <strong>Submit</strong> to register.</p>
-<form method="post" action="index.php" enctype="multipart/form-data" >
-      <input type="text" name="name" id="name" placeholder="Username" /></br>
-      <input type="password" name="password" id="password" placeholder="Password"/></br>
-      <input type="email" name="email" id="email" placeholder="Email"/></br>
-      <input type="email" name="email_c" id="email_c" placeholder="Re-enter your email"/></br>
-      <input type="text" name="fname" id="fname" placeholder="First Name"/></br>
-      <input type="text" name="lname" id="lname" placeholder="Last Name"/></br>
-      <label for="date">Date of birth</label>
-      <input id="date" type="date" name="bday"></br>
-      Gender <input type="radio" name="sex" value="male" id="male">Male
-             <input type="radio" name="sex" value="female" id="female">Female</br></br>
-      <input type="submit" name="submit" value="Create Account" />
-</form>
-<?php
-    // DB connection info
-    //TODO: Update the values for $host, $user, $pwd, and $db
-    //using the values you retrieved earlier from the portal.
-    $host = "eu-cdbr-azure-west-b.cloudapp.net";
-    $user = "b6a70abeba0a70";
-    $pwd = "6d447729";
-    $db = "comp3013";
-    // Connect to database.
-    try {
-        $conn = new PDO( "mysql:host=$host;dbname=$db", $user, $pwd);
-        $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-    }
-    catch(Exception $e){
-        die(var_dump($e));
-    }
-    // Insert registration info
-    if(!empty($_POST)) {
-    try {
-        $name = $_POST['name'];
-        $email = $_POST['email'];
-        $date = date("Y-m-d");
-        $password = $_POST['password'];
-        // Insert data
-        $sql_insert = "INSERT INTO users (name, pswd, email, date) 
-                   VALUES (?,?,?,?)";
-        $stmt = $conn->prepare($sql_insert);
-        $stmt->bindValue(1, $name);
-        $stmt->bindValue(2, $password);
-        $stmt->bindValue(3, $email);
-        $stmt->bindValue(4, $date);
-        $stmt->execute();
-    }
-    catch(Exception $e) {
-        die(var_dump($e));
-    }
-    echo "<h3>Your're registered!</h3>";
-    }
-    // Retrieve data
-    $sql_select = "SELECT * FROM users";
-    $stmt = $conn->query($sql_select);
-    $registrants = $stmt->fetchAll(); 
-    if(count($registrants) > 0) {
-        echo "<h2>People who are registered:</h2>";
-        echo "<table>";
-        echo "<tr><th>Name</th>";
-        echo "<th>Email</th>";
-        echo "<th>Date</th></tr>";
-        foreach($registrants as $registrant) {
-            echo "<tr><td>".$registrant['name']."</td>";
-            echo "<td>".$registrant['email']."</td>";
-            echo "<td>".$registrant['date']."</td></tr>";
+    <form method="post" action="index.php" enctype="multipart/form-data" >
+          <input type="text" name="name" id="name" placeholder="Username" /></br>
+          <input type="password" name="password" id="password" placeholder="Password"/></br>
+          <input type="email" name="email" id="email" placeholder="Email"/></br>
+          <input type="email" name="email_c" id="email_c" placeholder="Re-enter your email"/></br>
+          <input type="text" name="fname" id="fname" placeholder="First Name"/></br>
+          <input type="text" name="lname" id="lname" placeholder="Last Name"/></br>
+          <label for="date">Date of birth</label>
+          <input id="date" type="date" name="bday"></br>
+          Gender <input type="radio" name="sex" value="male" id="male">Male
+                 <input type="radio" name="sex" value="female" id="female">Female</br></br>
+          <input type="submit" name="submit" value="Create Account" />
+    </form>
+    <?php
+        // DB connection info
+        //TODO: Update the values for $host, $user, $pwd, and $db
+        //using the values you retrieved earlier from the portal.
+        $host = "eu-cdbr-azure-west-b.cloudapp.net";
+        $user = "b6a70abeba0a70";
+        $pwd = "6d447729";
+        $db = "comp3013";
+        // Connect to database.
+        try {
+            $conn = new PDO( "mysql:host=$host;dbname=$db", $user, $pwd);
+            $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
         }
-        echo "</table>";
-    } else {
-        echo "<h3>No one is currently registered.</h3>";
-    }
-    $conn = null;
-?>
+        catch(Exception $e){
+            die(var_dump($e));
+        }
+        // Insert registration info
+        if(!empty($_POST)) {
+        try {
+            $name = $_POST['name'];
+            $email = $_POST['email'];
+            $date = date("Y-m-d");
+            $password = $_POST['password'];
+            // Insert data
+            $sql_insert = "INSERT INTO users (name, pswd, email, date) 
+                       VALUES (?,?,?,?)";
+            $stmt = $conn->prepare($sql_insert);
+            $stmt->bindValue(1, $name);
+            $stmt->bindValue(2, $password);
+            $stmt->bindValue(3, $email);
+            $stmt->bindValue(4, $date);
+            $stmt->execute();
+        }
+        catch(Exception $e) {
+            die(var_dump($e));
+        }
+        echo "<h3>Your're registered!</h3>";
+        }
+        // Retrieve data
+        $sql_select = "SELECT * FROM users";
+        $stmt = $conn->query($sql_select);
+        $registrants = $stmt->fetchAll(); 
+        if(count($registrants) > 0) {
+            echo "<h2>People who are registered:</h2>";
+            echo "<table>";
+            echo "<tr><th>Name</th>";
+            echo "<th>Email</th>";
+            echo "<th>Date</th></tr>";
+            foreach($registrants as $registrant) {
+                echo "<tr><td>".$registrant['name']."</td>";
+                echo "<td>".$registrant['email']."</td>";
+                echo "<td>".$registrant['date']."</td></tr>";
+            }
+            echo "</table>";
+        } else {
+            echo "<h3>No one is currently registered.</h3>";
+        }
+        $conn = null;
+    ?>
   </script>
   
   <script type="text/x-handlebars" id="login">
     <h2>Login</h2>
   </script>
+ 
   
   <script src="js/libs/jquery-1.10.2.js"></script>
   <script src="js/libs/handlebars-1.1.2.js"></script>
