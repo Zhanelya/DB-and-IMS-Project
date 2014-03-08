@@ -11,3 +11,14 @@
     font-weight: bold;
     font-size: 1.8em;
 }
+
+.menu{
+    height:100%;
+    float:left; 
+    width:20%;
+}
+
+article{
+    float:right;
+    width:80%;
+}

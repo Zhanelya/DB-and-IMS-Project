@@ -25,20 +25,31 @@ http://www.windowsazure.com/en-us/documentation/articles/web-sites-php-mysql-dep
 </head>
 <body>
   <script type="text/x-handlebars">
-    <div class="navbar navbar-fixed-top header">
+    <header class="navbar navbar-fixed-top header">
         <div class="navbar-inner" >
             <ul class="nav">
-                <li>{{#link-to 'index'}}Home{{/link-to}}</li>
+                <li>{{#link-to 'index'}}SocialNet{{/link-to}}</li>
                 <li>{{#link-to 'register'}}Register{{/link-to}}</li>
                 <li>{{#link-to 'login'}}Login{{/link-to}}</li>
-                <li>{{#link-to 'messages'}}Messages{{/link-to}}</li>
             </ul>            
         </div>
+     </header>
+     
+     <div class="container-fluid">
+        <nav class="menu">
+            <ul class="nav nav-pills nav-stacked span2">
+              <li>{{#link-to 'profile'}}My profile{{/link-to}}</li>
+              <li>{{#link-to 'news'}}News Feed{{/link-to}}</li>
+              <li>{{#link-to 'messages'}}Messages{{/link-to}}</li>
+              <li>{{#link-to 'photos'}}Photos{{/link-to}}</li>
+              <li>{{#link-to 'friends'}}Friends{{/link-to}}</li>
+              <li>{{#link-to 'circles'}}Circles{{/link-to}}</li>
+            </ul>
+        </nav>
+        <article>
+            {{outlet}}
+        </article>
      </div>
-    
-     <article class="container-fluid;text-align:right">
-        {{outlet}}
-     </article>
   </script>
 
   <script type="text/x-handlebars" id="index">
@@ -99,6 +110,9 @@ http://www.windowsazure.com/en-us/documentation/articles/web-sites-php-mysql-dep
         }
         echo "<h3>Your're registered!</h3>";
         }
+        
+        
+        /*
         // Retrieve data
         $sql_select = "SELECT * FROM users";
         $stmt = $conn->query($sql_select);
@@ -118,6 +132,8 @@ http://www.windowsazure.com/en-us/documentation/articles/web-sites-php-mysql-dep
         } else {
             echo "<h3>No one is currently registered.</h3>";
         }
+         
+         */
         $conn = null;
     ?>
   </script>
@@ -126,8 +142,28 @@ http://www.windowsazure.com/en-us/documentation/articles/web-sites-php-mysql-dep
     <h2>Login</h2>
   </script>
  
+  <script type="text/x-handlebars" id="profile">
+    <h2>My profile</h2>  
+  </script>
+  
+  <script type="text/x-handlebars" id="news">
+    <h2>News Feed</h2>  
+  </script>
+  
   <script type="text/x-handlebars" id="messages">
     <h2>Messages</h2>  
+  </script>
+  
+  <script type="text/x-handlebars" id="photos">
+    <h2>Photos</h2>  
+  </script>
+  
+  <script type="text/x-handlebars" id="friends">
+    <h2>Friends</h2>  
+  </script>
+  
+  <script type="text/x-handlebars" id="circles">
+    <h2>Circles</h2>  
   </script>
   
   <script src="js/libs/jquery-1.10.2.js"></script>
