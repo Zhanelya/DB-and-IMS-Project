@@ -4,10 +4,10 @@ SET time_zone = "+00:00";
 CREATE DATABASE IF NOT EXISTS `comp3013` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `comp3013`;
 
-CREATE TABLE IF NOT EXISTS users (acc_id INT NOT NULL AUTO_INCREMENT, PRIMARY KEY(id), 
+CREATE TABLE IF NOT EXISTS users (acc_id INT NOT NULL AUTO_INCREMENT, PRIMARY KEY(acc_id), 
                                   name VARCHAR(30), pswd VARCHAR(30), email VARCHAR(30), date DATE);
 
-CREATE TABLE IF NOT EXISTS adm (acc_id INT NOT NULL, PRIMARY KEY(id), is_admin INT);
+CREATE TABLE IF NOT EXISTS adm (acc_id INT NOT NULL, PRIMARY KEY(acc_id), is_admin INT);
 
 CREATE TABLE IF NOT EXISTS profile (acc_id INT NOT NULL, PRIMARY KEY(acc_id), fname VARCHAR(30), 
                                     lname VARCHAR(30), dob DATE, gender CHAR(1) NOT NULL, country VARCHAR(30), 

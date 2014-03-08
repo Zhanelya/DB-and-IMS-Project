@@ -31,6 +31,7 @@ http://www.windowsazure.com/en-us/documentation/articles/web-sites-php-mysql-dep
                 <li>{{#link-to 'index'}}Home{{/link-to}}</li>
                 <li>{{#link-to 'register'}}Register{{/link-to}}</li>
                 <li>{{#link-to 'login'}}Login{{/link-to}}</li>
+                <li>{{#link-to 'messages'}}Messages{{/link-to}}</li>
             </ul>            
         </div>
      </div>
@@ -125,6 +126,9 @@ http://www.windowsazure.com/en-us/documentation/articles/web-sites-php-mysql-dep
     <h2>Login</h2>
   </script>
  
+  <script type="text/x-handlebars" id="messages">
+    <h2>Messages</h2>  
+  </script>
   
   <script src="js/libs/jquery-1.10.2.js"></script>
   <script src="js/libs/handlebars-1.1.2.js"></script>
