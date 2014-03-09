@@ -147,7 +147,12 @@ http://www.windowsazure.com/en-us/documentation/articles/web-sites-php-mysql-dep
   </script>
   
   <script type="text/x-handlebars" id="news">
-    <h2>News Feed</h2>  
+    <h2>News Feed</h2> 
+    {{#each item in model}}
+        <div class="row-fluid news_block">
+            <h5>{{item.friend}}</h5> <b>{{item.news.date}}</b> {{item.news.text}}
+        </div>
+    {{/each}}    
   </script>
   
   <script type="text/x-handlebars" id="messages">
