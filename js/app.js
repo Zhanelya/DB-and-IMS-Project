@@ -17,7 +17,7 @@ App.NewsRoute = Ember.Route.extend({
   }    
 });
 
-var news = [{    //test data to be replaced by real users data
+var news = [{    //test data to be replaced by real users data retrieved from DB
       id:'1',
       friend:"Adam",
       news:{text:"Added new friend Jenna",date:"22-01-2014"}
