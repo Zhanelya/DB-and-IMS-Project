@@ -64,7 +64,6 @@ http://www.windowsazure.com/en-us/documentation/articles/web-sites-php-mysql-dep
                  <input type="radio" name="gender" value="f" id="female">Female</br></br>
           <input type="submit" name="submit" value="Create Account" />
     </form>
-    <?php require_once 'register.php';?>  
   </script>
   
   <script type="text/x-handlebars" id="login">
@@ -73,6 +72,19 @@ http://www.windowsazure.com/en-us/documentation/articles/web-sites-php-mysql-dep
  
   <script type="text/x-handlebars" id="profile">
     <h3>My profile</h3>  
+    <div class="avatar"></div>
+    <div class="info">
+        <h4>Name Surname</h4>
+        <div class="nav">
+              <div><span class="info_tag">Birth Date</span>heyheyhey</div>
+              <div><span class="info_tag">Year of Birth</span> heyheyhey</div>
+              <div><span class="info_tag">Gender</span>heyheyhey</div>
+              <div><span class="info_tag">Country</span>heyheyhey</div>
+              <div><span class="info_tag">City</span>heyheyhey</div>
+              <div><span class="info_tag">Status</span>heyheyhey</div>
+        </div>
+        </h3></small>
+    </div>
   </script>
   
   <script type="text/x-handlebars" id="news">

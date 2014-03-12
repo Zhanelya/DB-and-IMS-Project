@@ -43,3 +43,20 @@ article{
     margin-bottom: 5px;
     border-top:solid #c0c0c0 1px;
 }
+.avatar{
+    float:left; 
+    width:150px;
+    height:150px;
+    border:solid #c0c0c0 1px;
+    margin-right:15px;
+    margin-top:10px;
+}
+.info{
+    float:left;
+    width:50%;
+}
+.info_tag{
+    float:left;
+    width:25%;
+    color:#999999;
+}

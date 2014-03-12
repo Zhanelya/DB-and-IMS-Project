@@ -30,4 +30,16 @@ var news = [{    //test data to be replaced by real users data retrieved from DB
       friend:"Chris",
       news:{text:"Added new friend Jenna",date:"22-01-2014"}
 }];
+
+var myprofile = { //sample data for testing only
+      id:'1',
+      fname:"Kate",
+      lname:"Smith",
+      dob:"1890-02-25",
+      gender:"f",
+      country:"USA",
+      city:"New York",
+      status:"married",
+      prof_img:"/url"
+}
    
