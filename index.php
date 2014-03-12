@@ -50,7 +50,7 @@ http://www.windowsazure.com/en-us/documentation/articles/web-sites-php-mysql-dep
   
   <script type="text/x-handlebars" id="register">
     <h3>Register</h3>
-    <p>Fill in your name and email address, then click <strong>Submit</strong> to register.</p>
+    <p>Fill in your details, then click <strong>Create Account</strong> to register.</p>
     <form method="post" action="register.php" enctype="multipart/form-data" >
           <input type="text" name="name" id="name" placeholder="Username" /></br>
           <input type="password" name="password" id="password" placeholder="Password"/></br>
