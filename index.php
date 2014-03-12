@@ -77,8 +77,6 @@ http://www.windowsazure.com/en-us/documentation/articles/web-sites-php-mysql-dep
   
   <script type="text/x-handlebars" id="login">
     <h2>Login</h2>
-    <?php 
-    ?>   
   </script>
  
   <script type="text/x-handlebars" id="profile">
