@@ -58,10 +58,10 @@ http://www.windowsazure.com/en-us/documentation/articles/web-sites-php-mysql-dep
           <input type="email" name="email_c" id="email_c" placeholder="Re-enter your email"/></br>
           <input type="text" name="fname" id="fname" placeholder="First Name"/></br>
           <input type="text" name="lname" id="lname" placeholder="Last Name"/></br>
-          <label for="date">Date of birth</label>
-          <input id="date" type="date" name="bday"></br>
-          Gender <input type="radio" name="sex" value="male" id="male">Male
-                 <input type="radio" name="sex" value="female" id="female">Female</br></br>
+          <label for="dob">Date of birth</label>
+          <input id="dob" type="date" name="dob"></br>
+          Gender <input type="radio" name="gender" value="m" id="male">Male
+                 <input type="radio" name="gender" value="f" id="female">Female</br></br>
           <input type="submit" name="submit" value="Create Account" />
     </form>
     <?php require_once 'register.php';?>  
