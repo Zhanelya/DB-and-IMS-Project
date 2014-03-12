@@ -11,6 +11,9 @@
         // Insert registration info
         if(!empty($_POST)) {
         try {
+$em = strip_tags(@$_POST['email']);
+$em2 = strip_tags(@$_POST['email_c']);
+
             $name = $_POST['name'];
             $email = $_POST['email'];
             $date = date("Y-m-d");
@@ -18,6 +21,10 @@
             $fname = $_POST['fname'];
             $lname = $_POST['lname'];
             $dob = $_POST['dob'];
+ 
+
+if ($fname&&$lname&&$name&&$em&&$em2&&$password&&$date) {
+        
             if(isset($_POST['gender'])) $gender = $_POST['gender'];
             
             // Insert data
@@ -27,7 +34,24 @@
             if(count($registrants) > 0) {
                 echo "User already exists";
                 header('refresh:2; ..#/register');
-            } else {
+            }
+
+            else if ($em!=$em2) {
+                echo "Different emails";
+                header('refresh:2; ..#/register');
+            }
+
+            else if (strlen($name)>25||strlen($fname)>25||strlen($lname)>25) {
+                echo "The maximum limit for username/first name/last name is 25 characters!";
+                header('refresh:2; ..#/register');
+            }
+            else if (strlen($password)>30||strlen($password)<5) {
+                echo "Your password must be between 5 and 30 characters long!";
+                header('refresh:2; ..#/register');
+            }
+
+
+ else {
                 //Update users table
                 $sql_insert = "INSERT INTO users (name, pswd, email, date) 
                        VALUES (?,?,?,?)";
@@ -55,10 +79,22 @@
                 echo "You are successfully registered, please log in";
                 header('refresh:3; ..#/login');
             }
+       }
+else{
+
+    echo "You are required to fill all the fields!";
+    header('refresh:2; ..#/register');
+}
+
         }
+
         catch(Exception $e) {
             die(var_dump($e));
         }
         }
+
+
+
+
         $conn = null;
 ?>
