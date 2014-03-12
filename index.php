@@ -45,11 +45,11 @@ http://www.windowsazure.com/en-us/documentation/articles/web-sites-php-mysql-dep
   </script>
 
   <script type="text/x-handlebars" id="index">
-    <h2>Welcome</h2>  
+    <h3>Welcome</h3>  
   </script>
   
   <script type="text/x-handlebars" id="register">
-    <h2>Register</h2>
+    <h3>Register</h3>
     <p>Fill in your name and email address, then click <strong>Submit</strong> to register.</p>
     <form method="post" action="register.php" enctype="multipart/form-data" >
           <input type="text" name="name" id="name" placeholder="Username" /></br>
@@ -68,15 +68,15 @@ http://www.windowsazure.com/en-us/documentation/articles/web-sites-php-mysql-dep
   </script>
   
   <script type="text/x-handlebars" id="login">
-    <h2>Login</h2>
+    <h3>Login</h3>
   </script>
  
   <script type="text/x-handlebars" id="profile">
-    <h2>My profile</h2>  
+    <h3>My profile</h3>  
   </script>
   
   <script type="text/x-handlebars" id="news">
-    <h2>News Feed</h2> 
+    <h3>News Feed</h3> 
     {{#each item in model}}
         <div class="row-fluid news_block">
             <h5>{{item.friend}}</h5>  {{item.news.text}} <h5><small>{{item.news.date}}</small></h5>
@@ -85,19 +85,19 @@ http://www.windowsazure.com/en-us/documentation/articles/web-sites-php-mysql-dep
   </script>
   
   <script type="text/x-handlebars" id="messages">
-    <h2>Messages</h2>  
+    <h3>Messages</h3>  
   </script>
   
   <script type="text/x-handlebars" id="photos">
-    <h2>Photos</h2>  
+    <h3>Photos</h3>  
   </script>
   
   <script type="text/x-handlebars" id="friends">
-    <h2>Friends</h2>  
+    <h3>Friends</h3>  
   </script>
   
   <script type="text/x-handlebars" id="circles">
-    <h2>Circles</h2>  
+    <h3>Circles</h3>  
   </script>
   
   <script src="js/libs/jquery-1.10.2.js"></script>

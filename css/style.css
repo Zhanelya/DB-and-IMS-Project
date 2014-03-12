@@ -18,6 +18,8 @@
 .logo{
     position:fixed;
     left:7%;
+    font-size:1.5em;
+    font-weight:bold;
 }
 .register{
     position:fixed;
