@@ -25,15 +25,7 @@ http://www.windowsazure.com/en-us/documentation/articles/web-sites-php-mysql-dep
 </head>
 <body>
   <script type="text/x-handlebars">
-    <header class="navbar navbar-fixed-top header">
-        <div class="navbar-inner" >
-            <ul class="nav">
-                <li>{{#link-to 'index'}}SocialNet{{/link-to}}</li>
-                <li>{{#link-to 'register'}}Register{{/link-to}}</li>
-                <li>{{#link-to 'login'}}Login{{/link-to}}</li>
-            </ul>            
-        </div>
-     </header>
+    <?php require_once 'header.php';?>
      
      <div class="container-fluid">
         <nav class="menu">

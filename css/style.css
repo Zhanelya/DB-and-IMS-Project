@@ -2,27 +2,40 @@
 .ember-application {
     margin: 50px;
 }
-
 .active{
     font-weight:bold;
 }
-
-#logo{
-    font-weight: bold;
-    font-size: 1.8em;
+.searchbox{
+    margin-top:0.5em;
+    margin-bottom:-1.5em;
+    position:fixed;
+    left:23%;
+    right:20%;
 }
-
+.header{
+    width:100%;
+}
+.logo{
+    position:fixed;
+    left:7%;
+}
+.register{
+    position:fixed;
+    right:7%;
+}
+.login{
+    position:fixed;
+    right:14%;
+}
 .menu{
     height:100%;
     float:left; 
     width:20%;
 }
-
 article{
     float:right;
     width:80%;
 }
-
 .news_block{
     margin-top: 5px;
     margin-bottom: 5px;
