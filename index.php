@@ -108,7 +108,7 @@ http://www.windowsazure.com/en-us/documentation/articles/web-sites-php-mysql-dep
         catch(Exception $e) {
             die(var_dump($e));
         }
-        echo "<h3>Your're registered!</h3>";
+        echo "<h3>You are successfully registered!</h3>";
         }
         
         
