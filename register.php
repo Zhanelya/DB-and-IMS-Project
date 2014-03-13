@@ -7,7 +7,6 @@
         try {
             $em = strip_tags(@$_POST['email']);
             $em2 = strip_tags(@$_POST['email_c']);
-
             $name = $_POST['name'];
             $email = $_POST['email'];
             $date = date("Y-m-d");
@@ -15,8 +14,9 @@
             $fname = $_POST['fname'];
             $lname = $_POST['lname'];
             if(!isset($_POST['dob'])||!isset($_POST['gender'])) {
-                echo "You are required to fill all the fields!";
-                header('refresh:3; ..#/register');
+                $response_array['status'] = 'error';
+                $response_array['msg'] = "You are required to fill all the fields!";
+                echo json_encode($response_array);
             }else{
                 $dob = $_POST['dob'];
                 $gender = $_POST['gender'];
@@ -26,20 +26,24 @@
                     $stmt = $conn->query($sql_select);
                     $registrants = $stmt->fetchAll(); 
                     if(count($registrants) > 0) {
-                        echo "User already exists";
-                        header('refresh:2; ..#/register');
+                        $response_array['status'] = 'error';
+                        $response_array['msg'] = "User already exists";
+                        echo json_encode($response_array);
                     }
                     else if ($em!=$em2) {
-                        echo "You have entered different emails";
-                        header('refresh:2; ..#/register');
+                        $response_array['status'] = 'error';
+                        $response_array['msg'] = "You have entered different emails";
+                        echo json_encode($response_array);
                     }
                     else if (strlen($name)>25||strlen($fname)>25||strlen($lname)>25) {
-                        echo "The maximum limit for username/first name/last name is 25 characters!";
-                        header('refresh:3; ..#/register');
+                        $response_array['status'] = 'error';
+                        $response_array['msg'] = "The maximum limit for username/first name/last name is 25 characters!";
+                        echo json_encode($response_array);
                     }
                     else if (strlen($password)>30||strlen($password)<5) {
-                        echo "Your password must be between 5 and 30 characters long!";
-                        header('refresh:3; ..#/register');
+                        $response_array['status'] = 'error';
+                        $response_array['msg'] = "Your password must be between 5 and 30 characters long!";
+                        echo json_encode($response_array);
                     }
                     else {
                     //Update users table
@@ -65,14 +69,16 @@
                     $stmt->bindValue(4, $dob);
                     $stmt->bindValue(5, $gender);
                     $stmt->execute();
-
-                    echo "You are successfully registered, please log in";
-                    header('refresh:3; ..#/login');
+                    
+                    $response_array['status'] = 'success';
+                    $response_array['msg'] = "You are successfully registered, please log in";
+                    echo json_encode($response_array);
                     }
                 }
                 else{
-                    echo "You are required to fill all the fields!";
-                    header('refresh:3; ..#/register');
+                    $response_array['status'] = 'error';
+                    $response_array['msg'] = "You are required to fill all the fields!";
+                    echo json_encode($response_array);
                 }
             }
         }

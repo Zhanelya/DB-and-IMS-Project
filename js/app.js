@@ -61,4 +61,31 @@ function show (id, block_id, php_file)
       xmlhttp.send();
 }
 
-   
+
+    $(function () {
+      $('#register_form').on('submit', function (e) {
+        $.ajax({
+          type: 'post',
+          url: 'register.php',
+          dataType : "json",
+          data: $('form').serialize(),
+          success: function (result) {
+            $('#register_sucmsg').html('');
+            $('#register_errmsg').html('');
+            
+            if(result.status=='success'){
+                $('#register_sucmsg').html(result.msg);
+                setTimeout(function() { 
+                    window.location.href = "..#/login"; 
+                }, 2000);
+            }else{
+                $('#register_errmsg').html(result.msg);
+            }
+          }
+        });
+        e.preventDefault();
+      });
+    });
+
+
+

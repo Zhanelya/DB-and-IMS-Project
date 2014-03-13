@@ -51,7 +51,7 @@ http://www.windowsazure.com/en-us/documentation/articles/web-sites-php-mysql-dep
   <script type="text/x-handlebars" id="register">
     <h3>Register</h3>
     <p>Fill in your details, then click <strong>Create Account</strong> to register.</p>
-    <form method="post" action="register.php" enctype="multipart/form-data" >
+    <form id="register_form" method="post"  enctype="multipart/form-data" >
           <input type="text" name="name" id="name" placeholder="Username" /></br>
           <input type="password" name="password" id="password" placeholder="Password"/></br>
           <input type="email" name="email" id="email" placeholder="Email"/></br>
@@ -61,7 +61,9 @@ http://www.windowsazure.com/en-us/documentation/articles/web-sites-php-mysql-dep
           <label for="dob">Date of birth</label>
           <input id="dob" type="date" name="dob"></br>
           Gender <input type="radio" name="gender" value="m" id="male">Male
-                 <input type="radio" name="gender" value="f" id="female">Female</br></br>
+                 <input type="radio" name="gender" value="f" id="female">Female</br>
+          <div id="register_errmsg"></div>
+          <div id="register_sucmsg"></div>
           <input type="submit" name="submit" value="Create Account" />
     </form>
   </script>
