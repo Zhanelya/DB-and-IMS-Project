@@ -27,18 +27,6 @@ App.ApplicationController = Ember.Controller.extend({ //this part tracks change 
   }.observes('currentPath')
 });
 
-var myprofile = { //sample data for testing only
-      id:'1',
-      fname:"Kate",
-      lname:"Smith",
-      dob:"1890-02-25",
-      gender:"f",
-      country:"USA",
-      city:"New York",
-      status:"married",
-      prof_img:"/url"
-}
-
 function show (id, block_id, php_file) 
 {
       if (window.XMLHttpRequest)
@@ -61,31 +49,30 @@ function show (id, block_id, php_file)
       xmlhttp.send();
 }
 
+$(function () {
+  $('#register_form').on('submit', function (e) {
+    $.ajax({
+      type: 'post',
+      url: 'register.php',
+      dataType : "json",
+      data: $('form').serialize(),
+      success: function (result) {
+        $('#register_sucmsg').html('');
+        $('#register_errmsg').html('');
 
-    $(function () {
-      $('#register_form').on('submit', function (e) {
-        $.ajax({
-          type: 'post',
-          url: 'register.php',
-          dataType : "json",
-          data: $('form').serialize(),
-          success: function (result) {
-            $('#register_sucmsg').html('');
-            $('#register_errmsg').html('');
-            
-            if(result.status=='success'){
-                $('#register_sucmsg').html(result.msg);
-                setTimeout(function() { 
-                    window.location.href = "..#/login"; 
-                }, 2000);
-            }else{
-                $('#register_errmsg').html(result.msg);
-            }
-          }
-        });
-        e.preventDefault();
-      });
+        if(result.status=='success'){
+            $('#register_sucmsg').html(result.msg);
+            setTimeout(function() { 
+                window.location.href = "..#/login"; 
+            }, 2000);
+        }else{
+            $('#register_errmsg').html(result.msg);
+        }
+      }
     });
+    e.preventDefault();
+  });
+});
 
 
 
