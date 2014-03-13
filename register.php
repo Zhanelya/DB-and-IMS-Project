@@ -1,13 +1,7 @@
 <?php
         require_once 'connection.php';
-        // Connect to database.
-        try {
-            $conn = new PDO( "mysql:host=$host;dbname=$db", $user, $pwd);
-            $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-        }
-        catch(Exception $e){
-            die(var_dump($e));
-        }
+        //Connect to DB
+        $conn = connect($host,$user,$pwd,$db);
         // Insert registration info
         if(!empty($_POST)) {
         try {
@@ -86,5 +80,6 @@
             die(var_dump($e));
         }
         }
+        //Disconnect from DB
         $conn = null;
 ?>

@@ -31,7 +31,7 @@ http://www.windowsazure.com/en-us/documentation/articles/web-sites-php-mysql-dep
         <nav class="menu">
             <ul class="nav nav-pills nav-stacked span2">
               <li>{{#link-to 'profile'}}My profile{{/link-to}}</li>
-              <li>{{#link-to 'news'}}News Feed{{/link-to}}</li>
+              <li id="news_button">{{#link-to 'news'}}News Feed{{/link-to}}</li>
               <li>{{#link-to 'messages'}}Messages{{/link-to}}</li>
               <li>{{#link-to 'photos'}}Photos{{/link-to}}</li>
               <li>{{#link-to 'friends'}}Friends{{/link-to}}</li>
@@ -72,28 +72,12 @@ http://www.windowsazure.com/en-us/documentation/articles/web-sites-php-mysql-dep
  
   <script type="text/x-handlebars" id="profile">
     <h3>My profile</h3>  
-    <div class="avatar"></div>
-    <div class="info">
-        <h4>Name Surname</h4>
-        <div class="nav">
-              <div><span class="info_tag">Birth Date</span>heyheyhey</div>
-              <div><span class="info_tag">Year of Birth</span> heyheyhey</div>
-              <div><span class="info_tag">Gender</span>heyheyhey</div>
-              <div><span class="info_tag">Country</span>heyheyhey</div>
-              <div><span class="info_tag">City</span>heyheyhey</div>
-              <div><span class="info_tag">Status</span>heyheyhey</div>
-        </div>
-        </h3></small>
-    </div>
+    <div id="profileBlock"></div>
   </script>
   
   <script type="text/x-handlebars" id="news">
     <h3>News Feed</h3> 
-    {{#each item in model}}
-        <div class="row-fluid news_block">
-            <h5>{{item.friend}}</h5>  {{item.news.text}} <h5><small>{{item.news.date}}</small></h5>
-        </div>
-    {{/each}}    
+    <div id="newsBlock"></div>
   </script>
   
   <script type="text/x-handlebars" id="messages">
