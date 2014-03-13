@@ -2,12 +2,11 @@
     require_once 'connection.php';
     //Connect to DB
     $conn = connect($host,$user,$pwd,$db);
-    $q = intval($_GET['q']);
-    $sql_select = "SELECT * FROM profile WHERE acc_id = '".$q."'";
-    $stmt = $conn->query($sql_select);
-    $news = $stmt->fetchAll(); 
-    
     try {
+        $q = intval($_GET['q']);
+        $sql_select = "SELECT * FROM profile WHERE acc_id = '".$q."'";
+        $stmt = $conn->query($sql_select);
+        $news = $stmt->fetchAll(); 
         if(count($news) > 0) {
             foreach($news as $new)
               {
