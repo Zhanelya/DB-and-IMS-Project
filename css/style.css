@@ -64,12 +64,14 @@ article{
     float:left;
     width:100%;
 }
-#register_errmsg{
+#register_errmsg,#login_errmsg
+{
     font-weight:800;
     color:#cd5b45;
     margin-bottom:0.5em;
 }
-#register_sucmsg{
+#register_sucmsg,#login_sucmsg
+{
     font-weight:800;
     color:#abcdef;
     margin-bottom:0.5em;

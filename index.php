@@ -64,12 +64,19 @@ http://www.windowsazure.com/en-us/documentation/articles/web-sites-php-mysql-dep
                  <input type="radio" name="gender" value="f" id="female">Female</br>
           <div id="register_errmsg"></div>
           <div id="register_sucmsg"></div>
-          <input type="submit" name="submit" value="Create Account" />
+          <input type="submit" name="submit" value="Create Account"/>
     </form>
   </script>
   
   <script type="text/x-handlebars" id="login">
     <h3>Login</h3>
+    <form id="login_form" method="post"  enctype="multipart/form-data" >
+          <input type="text" name="name" id="name" placeholder="Username" /></br>
+          <input type="password" name="password" id="password" placeholder="Password"/></br>
+          <div id="login_errmsg"></div>
+          <div id="login_sucmsg"></div>
+          <input type="submit" name="submit" value="Login"/>
+    </form>
   </script>
  
   <script type="text/x-handlebars" id="profile">

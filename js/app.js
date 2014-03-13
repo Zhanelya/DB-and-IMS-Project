@@ -72,6 +72,29 @@ $(function () {
     });
     e.preventDefault();
   });
+ });
+ 
+$(function () {
+  $('#login_form').on('submit', function (e) {
+    $.ajax({
+      type: 'post',
+      url: 'login.php',
+      dataType : "json",
+      data: $('form').serialize(),
+      success: function (result) {
+        $('#login_sucmsg').html('');
+        $('#login_errmsg').html('');
+        if(result.status=='success'){
+            $('#login_sucmsg').html(result.msg);
+            setTimeout(function() { 
+                window.location.href = "..#/"; 
+            }, 2000);
+        }else{
+            $('#login_errmsg').html(result.msg);
+        }
+      }
+    });
+  });
 });
 
 
