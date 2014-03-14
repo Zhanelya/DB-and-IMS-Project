@@ -51,11 +51,12 @@ function show (id, block_id, php_file)
 
 $(function () {
   $('#register_form').on('submit', function (e) {
+    e.preventDefault();  
     $.ajax({
       type: 'post',
       url: 'register.php',
       dataType : "json",
-      data: $('form').serialize(),
+      data: $('#register_form').serialize(),
       success: function (result) {
         $('#register_sucmsg').html('');
         $('#register_errmsg').html('');
@@ -70,17 +71,19 @@ $(function () {
         }
       }
     });
-    e.preventDefault();
+  return false;  
   });
- });
+  
+});
  
 $(function () {
   $('#login_form').on('submit', function (e) {
+    e.preventDefault();  
     $.ajax({
       type: 'post',
       url: 'login.php',
       dataType : "json",
-      data: $('form').serialize(),
+      data: $('#login_form').serialize(),
       success: function (result) {
         $('#login_sucmsg').html('');
         $('#login_errmsg').html('');
@@ -94,7 +97,9 @@ $(function () {
         }
       }
     });
+  return false;  
   });
+  
 });
 
 
