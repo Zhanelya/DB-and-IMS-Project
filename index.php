@@ -114,6 +114,7 @@ http://www.windowsazure.com/en-us/documentation/articles/web-sites-php-mysql-dep
   
   <script type="text/x-handlebars" id="friends">
     <h3>Friends</h3>  
+    <div id="friendsBlock"></div>
   </script>
   
   <script type="text/x-handlebars" id="circles">

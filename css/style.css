@@ -38,7 +38,7 @@ article{
     float:right;
     width:80%;
 }
-.news_block{
+.news_block,.friends_block{
     margin-top: 5px;
     margin-bottom: 5px;
     border-top:solid #c0c0c0 1px;

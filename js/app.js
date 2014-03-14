@@ -28,6 +28,9 @@ App.ApplicationController = Ember.Controller.extend({ //this part tracks change 
             if(App.get('currentPath') == 'profile'){
                 show($("#userid").html(),"profileBlock", "profile.php");
             }
+            if(App.get('currentPath') == 'friends'){
+                show($("#userid").html(),"friendsBlock", "friends.php");
+            }
         });
   }.observes('currentPath')
 });
