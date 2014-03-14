@@ -80,3 +80,8 @@ a:hover{
     cursor:pointer;
     text-decoration: none;
 }
+#are_friends,#add_friend{
+    width:15%;
+    float:right;
+    display:inline;
+}
