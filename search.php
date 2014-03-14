@@ -28,12 +28,12 @@
                  echo "<div id=\"fmsg_".$person['acc_id']."\" class=\"friend_msg\"></div>";
                  if(count ($arefriends)>0){
                     if ($arefriends[0]['status_approved']==0){
-                       echo "<button class=\"requested_friend\" id=\"req_\" onclick=\"friend_a_person(".$person['acc_id'].")\">Request Sent</button>";
+                       echo "<div class=\"requested_friend\" id=\"req_\" onclick=\"friend_a_person(".$person['acc_id'].")\"></div>";
                     }else{
-                       echo "<button class=\"are_friends\" id=\"friends_".$person['acc_id']."\" onclick=\"unfriend(".$person['acc_id'].")\">Unfriend</button>";
+                       echo "<div class=\"are_friends\" id=\"friends_".$person['acc_id']."\" onclick=\"unfriend(".$person['acc_id'].")\"></div>";
                     }
                  }else{
-                       echo "<button class=\"add_friend\" id=\"addfr_".$person['acc_id']."\" onclick=\"friend_a_person(".$person['acc_id'].")\">+1 Add Friend</button>";
+                       echo "<div class=\"add_friend\" id=\"addfr_".$person['acc_id']."\" onclick=\"friend_a_person(".$person['acc_id'].")\"></div>";
                  }
                  echo "</h5></div>";
               }

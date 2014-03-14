@@ -82,10 +82,26 @@ a:hover{
     text-decoration: none;
 }
 .are_friends,.add_friend,.requested_friend{
-    width:15%;
     float:right;
     display:inline;
+    background-size:139px 24px;
+    background-repeat:no-repeat;
+    width:139px;
+    height:24px;
 }
+.are_friends:hover,.add_friend:hover,.requested_friend:hover{
+    cursor:pointer;
+}    
+.are_friends{
+    background-image:url(../img/f_unfriend.png);
+}
+.add_friend{
+    background-image:url(../img/f_add_friend.png);
+}
+.requested_friend{
+    background-image:url(../img/f_request_sent.png);
+}
+
 .friend_msg{
    position:absolute;
    left:65%;
