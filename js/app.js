@@ -1,6 +1,6 @@
 App = Ember.Application.create({
   currentPath: '',
-  id:981, //App.set('id', 1) to set id afterlogin, App.get('id') to get it
+  id:0 //App.set('id', 1) to set id afterlogin, App.get('id') to get it
 });
 
 App.Router.map(function() {
@@ -89,6 +89,7 @@ $(function () {
         $('#login_errmsg').html('');
         if(result.status=='success'){
             $('#login_sucmsg').html(result.msg);
+            App.set('id', result.id);
             setTimeout(function() { 
                 window.location.href = "..#/"; 
             }, 2000);
