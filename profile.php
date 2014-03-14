@@ -14,7 +14,7 @@
                     $bday = $date->format("j"); //day in a format without preceding 0
                     $bmonth = $date->format("F"); //full month name
                     $byear = $date->format("Y"); 
-                    $gender = ($new['gender'=='m']?"male":"female");
+                    $gender = ($new['gender']=='m'?"male":"female");
                     echo "<div class=\"avatar\"></div>
                           <div class=\"info\">
                               <h4>".$new['fname']." ".$new['lname']."</h4>
