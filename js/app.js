@@ -55,49 +55,6 @@ function stripTrailingSlash(str) {
     return str;
 }
 
-function show (id, block_id, php_file) 
-{
-      if (window.XMLHttpRequest)
-        {// code for IE7+, Firefox, Chrome, Opera, Safari
-        xmlhttp=new XMLHttpRequest();
-        }
-      else
-        {// code for IE6, IE5
-        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-        }
-      xmlhttp.onreadystatechange=function()
-        {
-        if (xmlhttp.readyState==4 && xmlhttp.status==200)
-          {
-          //news=xmlhttp.responseText;
-          document.getElementById(block_id).innerHTML=xmlhttp.responseText;
-          }
-        }
-      xmlhttp.open("GET",php_file+"?q="+id,true);
-      xmlhttp.send();
-}
-function search (id, block_id, php_file) 
-{
-      if (window.XMLHttpRequest)
-        {// code for IE7+, Firefox, Chrome, Opera, Safari
-        xmlhttp=new XMLHttpRequest();
-        }
-      else
-        {// code for IE6, IE5
-        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-        }
-      xmlhttp.onreadystatechange=function()
-        {
-        if (xmlhttp.readyState==4 && xmlhttp.status==200)
-          {
-          //news=xmlhttp.responseText;
-          document.getElementById(block_id).innerHTML=xmlhttp.responseText;
-          }
-        }
-      xmlhttp.open("GET",php_file+"?"+id,true);
-      xmlhttp.send();
-}
-
 function register() {
     $.ajax({
       type: 'post',
@@ -152,3 +109,89 @@ function login () {
       }
     });
  }
+ 
+ function show (id, block_id, php_file) 
+{
+      if (window.XMLHttpRequest)
+        {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp=new XMLHttpRequest();
+        }
+      else
+        {// code for IE6, IE5
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+      xmlhttp.onreadystatechange=function()
+        {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200)
+          {
+          //news=xmlhttp.responseText;
+          document.getElementById(block_id).innerHTML=xmlhttp.responseText;
+          }
+        }
+      xmlhttp.open("GET",php_file+"?q="+id,true);
+      xmlhttp.send();
+}
+
+function search (id, block_id, php_file) 
+{
+      if (window.XMLHttpRequest)
+        {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp=new XMLHttpRequest();
+        }
+      else
+        {// code for IE6, IE5
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+      xmlhttp.onreadystatechange=function()
+        {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200)
+          {
+          //news=xmlhttp.responseText;
+          document.getElementById(block_id).innerHTML=xmlhttp.responseText;
+          }
+        }
+      xmlhttp.open("GET",php_file+"?"+id,true);
+      xmlhttp.send();
+}
+
+function friend_a_person(id){
+     if (window.XMLHttpRequest)
+        {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp=new XMLHttpRequest();
+        }
+      else
+        {// code for IE6, IE5
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+      xmlhttp.onreadystatechange=function()
+        {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200)
+          {
+          block_id = "fmsg_"+id;
+          document.getElementById(block_id).innerHTML=xmlhttp.responseText;
+          }
+        }
+      xmlhttp.open("GET","friend_a_person.php?id="+id,true);
+      xmlhttp.send();
+}
+function unfriend(id){
+    alert('are you sure you want to unfriend this person?');
+    if (window.XMLHttpRequest)
+        {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp=new XMLHttpRequest();
+        }
+      else
+        {// code for IE6, IE5
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+      xmlhttp.onreadystatechange=function()
+        {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200)
+          {
+          block_id = "fmsg_"+id;
+          document.getElementById(block_id).innerHTML=xmlhttp.responseText;
+          }
+        }
+      xmlhttp.open("GET","unfriend.php?id="+id,true);
+      xmlhttp.send();
+}

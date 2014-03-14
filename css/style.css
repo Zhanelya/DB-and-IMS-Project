@@ -35,6 +35,7 @@
     width:20%;
 }
 article{
+    margin-top:1em;
     float:right;
     width:80%;
 }
@@ -80,8 +81,15 @@ a:hover{
     cursor:pointer;
     text-decoration: none;
 }
-#are_friends,#add_friend{
+.are_friends,.add_friend,.requested_friend{
     width:15%;
     float:right;
     display:inline;
+}
+.friend_msg{
+   position:absolute;
+   left:65%;
+   display:inline;
+   font-weight:800;
+   color:#abcdef;
 }

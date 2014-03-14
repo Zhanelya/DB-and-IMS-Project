@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS message(sender_id INT NOT NULL, PRIMARY KEY(sender_id
                                    recipient_id INT NOT NULL, timestmp DATETIME, conversation_id INT, msg VARCHAR(1000));
 
 CREATE TABLE IF NOT EXISTS blog (id INT NOT NULL AUTO_INCREMENT, PRIMARY KEY(id), acc_id INT);
-CREATE TABLE IF NOT EXISTS post (blog_id INT NOT NULL , PRIMARY KEY(blog_id, timestmp), timestmp DATETIME, post VARCHAR(2000));
+CREATE TABLE IF NOT EXISTS post (blog_id INT NOT NULL, PRIMARY KEY(blog_id, timestmp), timestmp DATETIME, post VARCHAR(2000), title VARCHAR(50));
 
 CREATE TABLE IF NOT EXISTS album(id INT NOT NULL AUTO_INCREMENT, PRIMARY KEY(id), acc_id INT, name VARCHAR(30), privacy_id INT);
 
