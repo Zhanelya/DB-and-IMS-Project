@@ -21,13 +21,14 @@ App.Router.map(function() {
 App.ApplicationController = Ember.Controller.extend({ //this part tracks change of current page
   updateCurrentPath: function() {
         App.set('currentPath', this.get('currentPath'));
-        if(App.get('currentPath') == 'news'){
-            show($("#userid").html(),"newsBlock", "news.php");
-        }
-        if(App.get('currentPath') == 'profile'){
-            show($("#userid").html(),"profileBlock", "profile.php");
-        }
-        
+        $( document ).ready(function() {
+            if(App.get('currentPath') == 'news'){
+                show($("#userid").html(),"newsBlock", "news.php");
+            }
+            if(App.get('currentPath') == 'profile'){
+                show($("#userid").html(),"profileBlock", "profile.php");
+            }
+        });
   }.observes('currentPath')
 });
 

@@ -23,11 +23,11 @@
 }
 .register,.logout{
     position:fixed;
-    right:7%;
+    right:5%;
 }
 .login{
     position:fixed;
-    right:14%;
+    right:12%;
 }
 .menu{
     height:100%;
