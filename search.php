@@ -9,8 +9,9 @@
         $name = explode(" ", $fullname);
         $sql_select = "SELECT p.fname, p.lname, p.acc_id
                        FROM profile p
-                       WHERE  UPPER(p.fname)=UPPER('".$name[0]."')
-                          OR  UPPER(p.lname)=UPPER('".$name[0]."')
+                       WHERE  (UPPER(p.fname)=UPPER('".$name[0]."')
+                          OR  UPPER(p.lname)=UPPER('".$name[0]."'))
+                          AND (p.acc_id != '$userid')    
                        ORDER BY p.fname ASC";
         $stmt = $conn->query($sql_select);
         $people=$stmt->fetchAll(); 
@@ -26,13 +27,13 @@
                  echo "<div class=\"row-fluid friends_block\"><h5><a href=\"..#/p_profile?".$person['acc_id']."/\">".$person['fname']." ".$person['lname']."</a>";
                  echo "<div id=\"fmsg_".$person['acc_id']."\" class=\"friend_msg\"></div>";
                  if(count ($arefriends)>0){
-                     if ($arefriends[0]['status_approved']==0){
-                        echo "<button class=\"requested_friend\" id=\"req_\" onclick=\"friend_a_person(".$person['acc_id'].")\">Request Sent</button>";
-                     }else{
-                        echo "<button class=\"are_friends\" id=\"friends_".$person['acc_id']."\" onclick=\"unfriend(".$person['acc_id'].")\">Unfriend</button>";
-                     }
+                    if ($arefriends[0]['status_approved']==0){
+                       echo "<button class=\"requested_friend\" id=\"req_\" onclick=\"friend_a_person(".$person['acc_id'].")\">Request Sent</button>";
+                    }else{
+                       echo "<button class=\"are_friends\" id=\"friends_".$person['acc_id']."\" onclick=\"unfriend(".$person['acc_id'].")\">Unfriend</button>";
+                    }
                  }else{
-                        echo "<button class=\"add_friend\" id=\"addfr_".$person['acc_id']."\" onclick=\"friend_a_person(".$person['acc_id'].")\">+1 Add Friend</button>";
+                       echo "<button class=\"add_friend\" id=\"addfr_".$person['acc_id']."\" onclick=\"friend_a_person(".$person['acc_id'].")\">+1 Add Friend</button>";
                  }
                  echo "</h5></div>";
               }
