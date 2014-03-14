@@ -3,8 +3,8 @@
         <ul class="nav header">
             <li class="logo">{{#link-to 'index'}}SocialNet{{/link-to}}</li>
             <li class="searchbox"> 
-                <form action="search.php" method="GET" id="search">
-                    <input style="width:100%" type="text" name="search" size="60" placeholder="Search friends">
+                <form method="GET" id="search" action="#/search">
+                    <input style="width:80%" type="text" name="name" size="60" placeholder="Search friends"/>
                 </form>
             </li>
             <?php 

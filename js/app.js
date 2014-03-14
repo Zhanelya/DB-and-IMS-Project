@@ -12,6 +12,7 @@ App.Router.map(function() {
   this.resource('logout');
   this.resource('profile');
   this.resource('p_profile');
+  this.resource('search');
   this.resource('news');
   this.resource('messages');
   this.resource('photos');
@@ -36,6 +37,12 @@ App.ApplicationController = Ember.Controller.extend({ //this part tracks change 
                 url = window.location.toString();
                 person_id = (stripTrailingSlash(url).split('?'))[1]; 
                 show(person_id,"p_profileBlock", "profile.php");
+            }
+            if(App.get('currentPath') == 'search'){
+                url = window.location.toString();
+                person_id = (stripTrailingSlash(url).split('?'))[1]; 
+                console.log(person_id);
+                search(person_id,"searchBlock", "search.php");
             }
         });
   }.observes('currentPath')
@@ -67,6 +74,27 @@ function show (id, block_id, php_file)
           }
         }
       xmlhttp.open("GET",php_file+"?q="+id,true);
+      xmlhttp.send();
+}
+function search (id, block_id, php_file) 
+{
+      if (window.XMLHttpRequest)
+        {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp=new XMLHttpRequest();
+        }
+      else
+        {// code for IE6, IE5
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+      xmlhttp.onreadystatechange=function()
+        {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200)
+          {
+          //news=xmlhttp.responseText;
+          document.getElementById(block_id).innerHTML=xmlhttp.responseText;
+          }
+        }
+      xmlhttp.open("GET",php_file+"?"+id,true);
       xmlhttp.send();
 }
 

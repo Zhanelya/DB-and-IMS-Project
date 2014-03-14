@@ -10,13 +10,13 @@
                                OR 
                               (f.user2_id = '".$q."' AND f.user1_id = p.acc_id))
                               AND f.status_approved=1
-                       ORDER BY p.fname DESC";
+                       ORDER BY p.fname ASC";
         $stmt = $conn->query($sql_select);
         $friends=$stmt->fetchAll(); 
         if(count($friends) > 0) {
             foreach($friends as $friend)
               {
-                echo "<a href=\"#/p_profile?".$friend['acc_id']."/\"><div class=\"row-fluid friends_block\"><h5>".$friend['fname']." ".$friend['lname']."</h5></div></a>";
+                echo "<a href=\"..#/p_profile?".$friend['acc_id']."/\"><div class=\"row-fluid friends_block\"><h5>".$friend['fname']." ".$friend['lname']."</h5></div></a>";
               }
         }
     }catch(Exception $e) {

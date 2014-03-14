@@ -18,7 +18,7 @@
         if(count($news) > 0) {
             foreach($news as $new)
               {
-                echo "<div class=\"row-fluid news_block\"><h5><a href=\"#/p_profile?".$new['acc_id']."/\">".$new['fname']." ".$new['lname']."</a></h5>";
+                echo "<div class=\"row-fluid news_block\"><h5><a href=\"..#/p_profile?".$new['acc_id']."/\">".$new['fname']." ".$new['lname']."</a></h5>";
                 echo "Added new ".$new['category'];
                 echo "<h5><small>".date("j M Y",strtotime($new['timestmp']))." at ".date("H:i:s",strtotime($new['timestmp']))."</small></h5></div>";
               }
