@@ -15,7 +15,7 @@
         if(count($people) > 0) {
             foreach($people as $person)
               {
-                echo "<a href=\"..#/p_profile?".$person['acc_id']."/\"><div class=\"row-fluid friends_block\"><h5>".$person['fname']." ".$person['lname']."</h5></div></a>";
+                echo "<div class=\"row-fluid friends_block\"><h5><a href=\"..#/p_profile?".$person['acc_id']."/\">".$person['fname']." ".$person['lname']."</a></h5></div>";
               }
         }
     }catch(Exception $e) {
