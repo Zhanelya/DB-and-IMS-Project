@@ -9,6 +9,7 @@
                        WHERE ((f.user1_id = '".$q."' AND p.acc_id = f.user2_id)
                                OR 
                               (f.user2_id = '".$q."' AND p.acc_id = f.user1_id))
+                              AND f.status_approved=1
                        ORDER BY p.fname DESC";
         $stmt = $conn->query($sql_select);
         $friends=$stmt->fetchAll(); 
