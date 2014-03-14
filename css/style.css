@@ -76,3 +76,7 @@ article{
     color:#abcdef;
     margin-bottom:0.5em;
 }
+a:hover{
+    cursor:pointer;
+    text-decoration: none;
+}

@@ -11,6 +11,7 @@ App.Router.map(function() {
   this.resource('login');
   this.resource('logout');
   this.resource('profile');
+  this.resource('p_profile');
   this.resource('news');
   this.resource('messages');
   this.resource('photos');
@@ -31,9 +32,21 @@ App.ApplicationController = Ember.Controller.extend({ //this part tracks change 
             if(App.get('currentPath') == 'friends'){
                 show($("#userid").html(),"friendsBlock", "friends.php");
             }
+            if(App.get('currentPath') == 'p_profile'){
+                url = window.location.toString();
+                person_id = (stripTrailingSlash(url).split('?'))[1]; 
+                show(person_id,"p_profileBlock", "profile.php");
+            }
         });
   }.observes('currentPath')
 });
+
+function stripTrailingSlash(str) {
+    if(str.substr(-1) == '/') {
+        return str.substr(0, str.length - 1);
+    }
+    return str;
+}
 
 function show (id, block_id, php_file) 
 {

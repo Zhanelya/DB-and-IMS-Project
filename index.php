@@ -99,6 +99,11 @@ http://www.windowsazure.com/en-us/documentation/articles/web-sites-php-mysql-dep
     <div id="profileBlock"></div>
   </script>
   
+  <script type="text/x-handlebars" id="p_profile">
+    <h3>Profile</h3>  
+    <div id="p_profileBlock"></div>
+  </script>
+  
   <script type="text/x-handlebars" id="news">
     <h3>News Feed</h3> 
     <div id="newsBlock"></div>

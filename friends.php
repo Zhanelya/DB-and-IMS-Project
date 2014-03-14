@@ -4,7 +4,7 @@
     $conn = connect($host,$user,$pwd,$db);
     try {
         $q = intval($_GET['q']);
-        $sql_select = "SELECT p.fname, p.lname
+        $sql_select = "SELECT p.fname, p.lname, p.acc_id
                        FROM profile p , friendship f 
                        WHERE ((f.user1_id = '".$q."' AND p.acc_id = f.user2_id)
                                OR 
@@ -15,7 +15,7 @@
         if(count($friends) > 0) {
             foreach($friends as $friend)
               {
-                echo "<div class=\"row-fluid friends_block\"><h5>".$friend['fname']." ".$friend['lname']."</h5></div>";
+                echo "<a href=\"#/p_profile?".$friend['acc_id']."/\"><div class=\"row-fluid friends_block\"><h5>".$friend['fname']." ".$friend['lname']."</h5></div></a>";
               }
         }
     }catch(Exception $e) {
