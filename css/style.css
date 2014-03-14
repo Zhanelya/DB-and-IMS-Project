@@ -101,7 +101,6 @@ a:hover{
 .requested_friend{
     background-image:url(../img/f_request_sent.png);
 }
-
 .friend_msg{
    position:absolute;
    left:65%;
