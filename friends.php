@@ -6,9 +6,9 @@
         $q = intval($_GET['q']);
         $sql_select = "SELECT p.fname, p.lname, p.acc_id
                        FROM profile p , friendship f 
-                       WHERE ((f.user1_id = '".$q."' AND p.acc_id = f.user2_id)
+                       WHERE ((f.user1_id = '".$q."' AND f.user2_id = p.acc_id)
                                OR 
-                              (f.user2_id = '".$q."' AND p.acc_id = f.user1_id))
+                              (f.user2_id = '".$q."' AND f.user1_id = p.acc_id))
                               AND f.status_approved=1
                        ORDER BY p.fname DESC";
         $stmt = $conn->query($sql_select);
