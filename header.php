@@ -7,8 +7,14 @@
                     <input style="width:100%" type="text" name="search" size="60" placeholder="Search friends">
                 </form>
             </li>
-            <li class="register">{{#link-to 'register'}}Register{{/link-to}}</li>
-            <li class="login">{{#link-to 'login'}}Login{{/link-to}}</li>
+            <?php 
+            if ($userid!=0){
+              echo "<li class=\"logout\" onclick=\"logout()\">{{#link-to 'logout'}}Logout{{/link-to}}</li>";
+            }else{
+              echo "<li class=\"register\">{{#link-to 'register'}}Register{{/link-to}}</li>";
+              echo "<li class=\"login\">{{#link-to 'login'}}Login{{/link-to}}</li>";
+                }
+            ?>
          </ul>   
     </div>
  </header>

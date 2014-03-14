@@ -21,7 +21,7 @@
     font-size:1.5em;
     font-weight:bold;
 }
-.register{
+.register,.logout{
     position:fixed;
     right:7%;
 }

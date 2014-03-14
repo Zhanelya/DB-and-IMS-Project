@@ -25,17 +25,28 @@ http://www.windowsazure.com/en-us/documentation/articles/web-sites-php-mysql-dep
 </head>
 <body>
   <script type="text/x-handlebars">
+    <?php 
+    session_start();
+    $userid = 0;
+    if(isset($_SESSION['userid'])){
+        $userid = $_SESSION['userid'];
+    }
+    ?>
     <?php require_once 'header.php';?>
-     
+     <div id="userid" hidden><?php echo $userid;?></div>
      <div class="container-fluid">
         <nav class="menu">
             <ul class="nav nav-pills nav-stacked span2">
-              <li>{{#link-to 'profile'}}My profile{{/link-to}}</li>
-              <li id="news_button">{{#link-to 'news'}}News Feed{{/link-to}}</li>
+            <?php 
+            if ($userid!=0)
+              echo
+              "<li>{{#link-to 'profile'}}My profile{{/link-to}}</li>
+              <li>{{#link-to 'news'}}News Feed{{/link-to}}</li>
               <li>{{#link-to 'messages'}}Messages{{/link-to}}</li>
               <li>{{#link-to 'photos'}}Photos{{/link-to}}</li>
               <li>{{#link-to 'friends'}}Friends{{/link-to}}</li>
-              <li>{{#link-to 'circles'}}Circles{{/link-to}}</li>
+              <li>{{#link-to 'circles'}}Circles{{/link-to}}</li>"
+            ?>
             </ul>
         </nav>
         <article>
@@ -45,7 +56,7 @@ http://www.windowsazure.com/en-us/documentation/articles/web-sites-php-mysql-dep
   </script>
 
   <script type="text/x-handlebars" id="index">
-    <h3>Welcome</h3>  
+    <h3>Home</h3>  
   </script>
   
   <script type="text/x-handlebars" id="register">
@@ -75,10 +86,13 @@ http://www.windowsazure.com/en-us/documentation/articles/web-sites-php-mysql-dep
           <input type="password" name="password" id="password" placeholder="Password"/></br>
           <div id="login_errmsg"></div>
           <div id="login_sucmsg"></div>
-          <input type="button" name="submit_login" onclick="login()" value="Login"/>
+          <input type="button" name="submit_login" onclick="login()" value="Login"/> 
     </form>
   </script>
  
+  <script type="text/x-handlebars" id="logout">
+  </script>    
+  
   <script type="text/x-handlebars" id="profile">
     <h3>My profile</h3>  
     <div id="profileBlock"></div>

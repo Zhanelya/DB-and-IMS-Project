@@ -1,11 +1,15 @@
+// to get the ID of a user currently logged in, see innerhtml of a hidden div: 
+// $("#userid").html()
+// this div is filled in automatically by $_SESSION['userid'] from serverside
+
 App = Ember.Application.create({
-  currentPath: '',
-  id:0 //App.set('id', 1) to set id afterlogin, App.get('id') to get it
+  currentPath: ''
 });
 
 App.Router.map(function() {
   this.resource('register');
   this.resource('login');
+  this.resource('logout');
   this.resource('profile');
   this.resource('news');
   this.resource('messages');
@@ -18,10 +22,10 @@ App.ApplicationController = Ember.Controller.extend({ //this part tracks change 
   updateCurrentPath: function() {
         App.set('currentPath', this.get('currentPath'));
         if(App.get('currentPath') == 'news'){
-            show(App.get('id'),"newsBlock", "news.php");
+            show($("#userid").html(),"newsBlock", "news.php");
         }
         if(App.get('currentPath') == 'profile'){
-            show(App.get('id'),"profileBlock", "profile.php");
+            show($("#userid").html(),"profileBlock", "profile.php");
         }
         
   }.observes('currentPath')
@@ -82,13 +86,24 @@ function login () {
         $('#login_errmsg').html('');
         if(result.status=='success'){
             $('#login_sucmsg').html(result.msg);
-            App.set('id', result.id);
             setTimeout(function() { 
-                window.location.href = "..#/"; 
+               window.location.href = "..#/"; 
+               window.location.reload();
             }, 2000);
         }else{
             $('#login_errmsg').html(result.msg);
         }
+      }
+    });
+ }
+ 
+ function logout(){
+    $.ajax({
+      type: 'post',
+      url: 'logout.php',
+      success: function () {
+               window.location.href = "..#/"; 
+               window.location.reload();
       }
     });
  }
