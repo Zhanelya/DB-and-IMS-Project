@@ -64,7 +64,7 @@ http://www.windowsazure.com/en-us/documentation/articles/web-sites-php-mysql-dep
                  <input type="radio" name="gender" value="f" id="female">Female</br>
           <div id="register_errmsg"></div>
           <div id="register_sucmsg"></div>
-          <input type="submit" name="submit_register" value="Create Account"/>
+          <input type="button" name="submit_register" onclick="register()" value="Create Account"/>
     </form>
   </script>
   
@@ -75,7 +75,7 @@ http://www.windowsazure.com/en-us/documentation/articles/web-sites-php-mysql-dep
           <input type="password" name="password" id="password" placeholder="Password"/></br>
           <div id="login_errmsg"></div>
           <div id="login_sucmsg"></div>
-          <input type="submit" name="submit_login" value="Login"/>
+          <input type="button" name="submit_login" onclick="login()" value="Login"/>
     </form>
   </script>
  

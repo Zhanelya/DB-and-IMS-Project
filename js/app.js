@@ -49,9 +49,7 @@ function show (id, block_id, php_file)
       xmlhttp.send();
 }
 
-$(function () {
-  $('#register_form').on('submit', function (e) {
-    e.preventDefault();  
+function register() {
     $.ajax({
       type: 'post',
       url: 'register.php',
@@ -71,14 +69,9 @@ $(function () {
         }
       }
     });
-  return false;  
-  });
-  
-});
+}
  
-$(function () {
-  $('#login_form').on('submit', function (e) {
-    e.preventDefault();  
+function login () {
     $.ajax({
       type: 'post',
       url: 'login.php',
@@ -98,10 +91,4 @@ $(function () {
         }
       }
     });
-  return false;  
-  });
-  
-});
-
-
-
+ }
