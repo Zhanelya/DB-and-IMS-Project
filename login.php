@@ -5,7 +5,7 @@
         session_start();
         //Check login info
         try {
-            if (!isset($_SESSION['userID'])) { 
+            if (!isset($_SESSION['userid'])) { 
                 $name = $_POST['name'];
                 $password = $_POST['password'];
                     if ($name&&$password) {

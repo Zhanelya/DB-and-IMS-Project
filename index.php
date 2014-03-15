@@ -30,6 +30,7 @@ http://www.windowsazure.com/en-us/documentation/articles/web-sites-php-mysql-dep
     $userid = 0;
     if(isset($_SESSION['userid'])){
         $userid = $_SESSION['userid'];
+        $username= $_SESSION['username'];
     }
     ?>
     <?php require_once 'header.php';?>
@@ -57,7 +58,12 @@ http://www.windowsazure.com/en-us/documentation/articles/web-sites-php-mysql-dep
   </script>
 
   <script type="text/x-handlebars" id="index">
-    <h3>Home</h3>  
+    <?php 
+            if ($userid!=0)
+              echo "<br>Welcome back, <b>".$username."</b>";
+            else
+              echo "<br>Please <a href=\"..#/login\"><b>Login</b></a> or <a href=\"..#/register\"><b>Register</b></a>";
+    ?>
   </script>
   
   <script type="text/x-handlebars" id="register">
@@ -98,6 +104,9 @@ http://www.windowsazure.com/en-us/documentation/articles/web-sites-php-mysql-dep
   <script type="text/x-handlebars" id="profile">
     <h3>My profile</h3>  
     <div id="profileBlock"></div>
+    <button onclick="edit_profile();">Edit</button>
+    <button onclick="save_profile();">Save</button>
+    <div id="profile_save_msg"></div>
   </script>
   
   <script type="text/x-handlebars" id="p_profile">

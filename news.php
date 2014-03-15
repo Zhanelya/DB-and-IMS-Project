@@ -18,8 +18,23 @@
         if(count($news) > 0) {
             foreach($news as $new)
               {
+                $activity_id = $new['a_id'];
+                if($new['category_id'] == 1){//friendship
+                    $sql_select = "SELECT f.user2_id, p.fname, p.lname FROM friendship f, profile p WHERE id='$activity_id' 
+                                                                                                    AND p.acc_id=f.user2_id";
+                    $stmt = $conn->query($sql_select);
+                    $friendship=$stmt->fetchAll(); 
+                    foreach($friendship as $friendship_info){
+                        $added= $friendship_info['fname']." ".$friendship[0]['lname'];
+                        $added_id = $friendship_info['user2_id'];
+                    }    
+                }
                 echo "<div class=\"row-fluid news_block\"><h5><a href=\"..#/p_profile?".$new['acc_id']."/\">".$new['fname']." ".$new['lname']."</a></h5>";
-                echo "Added new ".$new['category'];
+                if($new['category_id'] == 3){//profile
+                    echo "Updated ".$new['category']."";
+                }else{
+                    echo "Added new ".$new['category']." <a href=\"..#/p_profile?".$added_id."/\">".$added."</a>";
+                }
                 echo "<h5><small>".date("j M Y",strtotime($new['timestmp']))." at ".date("H:i:s",strtotime($new['timestmp']))."</small></h5></div>";
               }
         }

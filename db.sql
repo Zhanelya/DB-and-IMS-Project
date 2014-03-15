@@ -34,7 +34,7 @@ INSERT INTO circle_type VALUES (1, "Colleague");
 INSERT INTO circle_type VALUES (2, "Family");
 INSERT INTO circle_type VALUES (3, "Classmate");
 
-CREATE TABLE IF NOT EXISTS activity (acc_id INT NOT NULL, PRIMARY KEY(acc_id), timestmp DATETIME, category_id INT, a_id INT);
+CREATE TABLE IF NOT EXISTS activity (acc_id INT NOT NULL, PRIMARY KEY(acc_id,timestmp), timestmp DATETIME, category_id INT, a_id INT);
 CREATE TABLE IF NOT EXISTS activity_category (id INT NOT NULL, PRIMARY KEY(id), category VARCHAR(30)); 
 INSERT INTO activity_category VALUES (1, "Friend");
 INSERT INTO activity_category VALUES (2, "Circle");
