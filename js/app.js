@@ -166,8 +166,6 @@ function friend_a_person(id){
         if (xmlhttp.readyState==4 && xmlhttp.status==200)
           {
           block_id = "fmsg_"+id;
-          $('id').removeClass('add_friend');
-          $('id').addClass('requested_friend');
           document.getElementById(id).className = "";
           document.getElementById(id).className = "requested_friend";
           document.getElementById(block_id).innerHTML=xmlhttp.responseText;
@@ -177,7 +175,38 @@ function friend_a_person(id){
       xmlhttp.send();
 }
 function unfriend(id){
-    alert('are you sure you want to unfriend this person?');
+    var r = confirm('Are you sure you want to unfriend this person?');
+    if (r == true)
+    {
+        if (window.XMLHttpRequest)
+        {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp=new XMLHttpRequest();
+        }
+        else
+        {// code for IE6, IE5
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange=function()
+        {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200)
+          {
+          block_id = "fmsg_"+id;
+          document.getElementById(id).className = "";
+          document.getElementById(id).className = "add_friend";
+          document.getElementById(id).onclick = function () { friend_a_person(id); };
+          document.getElementById(block_id).innerHTML=xmlhttp.responseText;
+          }
+        }
+      xmlhttp.open("GET","unfriend.php?id="+id,true);
+      xmlhttp.send();
+        return true;
+    }
+    else
+    {
+        return false;
+    }      
+}
+function accept_friend(id){
     if (window.XMLHttpRequest)
         {// code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp=new XMLHttpRequest();
@@ -190,13 +219,10 @@ function unfriend(id){
         {
         if (xmlhttp.readyState==4 && xmlhttp.status==200)
           {
-          block_id = "fmsg_"+id;
-          document.getElementById(id).className = "";
-          document.getElementById(id).className = "add_friend";
-          document.getElementById(id).onclick = function () { friend_a_person(id); };
-          document.getElementById(block_id).innerHTML=xmlhttp.responseText;
+          setTimeout(function(){
+              window.location.reload();},2000);
           }
         }
-      xmlhttp.open("GET","unfriend.php?id="+id,true);
+      xmlhttp.open("GET","friend_accept.php?id="+id,true);
       xmlhttp.send();
 }

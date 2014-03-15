@@ -9,7 +9,7 @@
         try {
             $fid = intval($_GET['id']);
             //Check if exists
-            $sql_select = "SELECT id FROM friendship WHERE user1_id='$userid' AND user2_id='$fid'";
+            $sql_select = "SELECT id,status_approved,user2_id FROM friendship WHERE user1_id='$userid' AND user2_id='$fid'";
             $stmt = $conn->query($sql_select);
             $friends = $stmt->fetchAll(); 
             if (count ($friends) <= 0){
