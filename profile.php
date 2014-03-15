@@ -1,4 +1,6 @@
 <?php
+        session_start();
+        $userid = $_SESSION['userid'];
         require_once 'connection.php';
         //Connect to DB
         $conn = connect($host,$user,$pwd,$db);
@@ -15,7 +17,8 @@
                     $bmonth = $date->format("F"); //full month name
                     $byear = $date->format("Y"); 
                     $gender = ($new['gender']=='m'?"male":"female");
-                    echo "<div class=\"avatar\"></div>
+                    echo "<div style=\"width:100%\">
+                          <div class=\"avatar\"></div>
                           <div class=\"info\">
                               <h4>".$new['fname']." ".$new['lname']."</h4>
                               <div class=\"nav\">
@@ -26,7 +29,27 @@
                                   <div class=\"pers_info\"><span class=\"info_tag\">City</span>".$new['city']."</div>
                                   <div class=\"pers_info\"><span class=\"info_tag\">Status</span>".$new['status']."</div>
                               </div>
+                          </div>
                           </div>";
+                    if($q!=$userid){
+                        $sql_select = " SELECT f.user1_id, f.status_approved
+                                    FROM friendship f
+                                    WHERE  (f.user1_id = '".$q."' AND f.user2_id = '".$userid."')
+                                       OR  (f.user2_id = '".$q."' AND f.user1_id = '".$userid."')";
+                        $stmt = $conn->query($sql_select);
+                        $arefriends=$stmt->fetchAll();      
+                        echo "<div id=\"fmsg_".$q."\" class=\"friend_msg\"></div>";
+                        if(count ($arefriends)>0){
+                           if ($arefriends[0]['status_approved']==0){
+                              echo "<div class=\"requested_friend\" id=\"".$q. "\"onclick=\"friend_a_person(".$q.")\"></div>";
+                           }else{
+                              echo "<div class=\"are_friends\" id=\"".$q."\" onclick=\"unfriend(".$q.")\"></div>";
+                           }
+                        }else{
+                              echo "<div class=\"add_friend\" id=\"".$q."\" onclick=\"friend_a_person(".$q.")\"></div>";
+                        }
+                        echo "</h5></div>";
+                    }
                   }
             }
         }catch(Exception $e) {

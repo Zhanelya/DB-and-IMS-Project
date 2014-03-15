@@ -41,7 +41,6 @@ App.ApplicationController = Ember.Controller.extend({ //this part tracks change 
             if(App.get('currentPath') == 'search'){
                 url = window.location.toString();
                 person_id = (stripTrailingSlash(url).split('?'))[1]; 
-                console.log(person_id);
                 search(person_id,"searchBlock", "search.php");
             }
         });
@@ -146,7 +145,6 @@ function search (id, block_id, php_file)
         {
         if (xmlhttp.readyState==4 && xmlhttp.status==200)
           {
-          //news=xmlhttp.responseText;
           document.getElementById(block_id).innerHTML=xmlhttp.responseText;
           }
         }
@@ -168,6 +166,10 @@ function friend_a_person(id){
         if (xmlhttp.readyState==4 && xmlhttp.status==200)
           {
           block_id = "fmsg_"+id;
+          $('id').removeClass('add_friend');
+          $('id').addClass('requested_friend');
+          document.getElementById(id).className = "";
+          document.getElementById(id).className = "requested_friend";
           document.getElementById(block_id).innerHTML=xmlhttp.responseText;
           }
         }
@@ -189,6 +191,9 @@ function unfriend(id){
         if (xmlhttp.readyState==4 && xmlhttp.status==200)
           {
           block_id = "fmsg_"+id;
+          document.getElementById(id).className = "";
+          document.getElementById(id).className = "add_friend";
+          document.getElementById(id).onclick = function () { friend_a_person(id); };
           document.getElementById(block_id).innerHTML=xmlhttp.responseText;
           }
         }
