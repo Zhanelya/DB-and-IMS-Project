@@ -35,6 +35,7 @@ http://www.windowsazure.com/en-us/documentation/articles/web-sites-php-mysql-dep
     ?>
     <?php require_once 'header.php';?>
      <div id="userid" hidden><?php echo $userid;?></div>
+     <div id="username" hidden><?php echo $username;?></div>
      <div class="container-fluid">
         <nav class="menu">
             <ul class="nav nav-pills nav-stacked span2">

@@ -110,18 +110,18 @@ function login () {
       }
     });
  }
- var username = 
+ var username = $("#username").html();
  var posts = [{
   id: '1',
   title: "Save more with Google Drive",
-  author: { name: $("#userid").html()},
+  author: { name: 'username'},
   date: new Date('03-13-2014'),
   excerpt: "Having launched Google Drive just two years ago, we’re excited that so many people are now using it as their go-to place for keeping all their files.",
   body: "Having launched Google Drive just two years ago, we’re excited that so many people are now using it as their go-to place for keeping all their files. Whether it's all the footage of your kids' baseball games, the novel you're working on, or even just your grocery list for the week, we all have files that are too important to lose. Today, thanks to a number of recent infrastructure improvements, we’re able to make it more affordable for you to keep everything safe and easy to reach on any device, from anywhere."
 }, {
   id: '2',
   title: "Thank you, and welcome to the new Google Maps",
-  author: { name: $("#userid").html()},
+  author: { name: 'username'},
   date: new Date('02-19-2014'),
   excerpt: "Over the coming weeks the new Google Maps will make its way onto desktops around the world.",
   body: "Over the coming weeks the new Google Maps will make its way onto desktops around the world. Many of you have been previewing it since its debut last May, and thanks to your helpful feedback we’re ready to make the new Maps even more widely available. It’s now even easier to plan your next trip, check live traffic conditions, discover what’s happening around town, and learn about a new area—with Pegman’s help if needed."  
