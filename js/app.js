@@ -226,3 +226,26 @@ function accept_friend(id){
       xmlhttp.open("GET","friend_accept.php?id="+id,true);
       xmlhttp.send();
 }
+function edit_profile(){
+  $.each($(".p_edit"), function(){
+      this.contentEditable="true";
+  });
+  $("#profile_save_msg").html('');
+}
+function save_profile(){
+ var profile_array = [];
+ $.each($(".p_edit"), function(){
+     profile_array.push({id:$(this).attr('id'),val:$(this).text()});
+     this.removeAttribute('contenteditable');
+ }); 
+ console.log(profile_array);
+ $.ajax({
+      type: 'post',
+      url: 'update_profile.php',
+      data: {data:profile_array},
+      success: function (result) {
+        $("#profile_save_msg").html(result);
+      }
+    });
+ 
+}

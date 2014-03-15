@@ -22,12 +22,14 @@
                           <div class=\"info\">
                               <h4>".$new['fname']." ".$new['lname']."</h4>
                               <div class=\"nav\">
-                                  <div class=\"pers_info\"><span class=\"info_tag\">Birth Date</span>".$bday." ".$bmonth."</div>
-                                  <div class=\"pers_info\"><span class=\"info_tag\">Year of Birth</span>".$byear."</div>
-                                  <div class=\"pers_info\"><span class=\"info_tag\">Gender</span>".$gender."</div>
-                                  <div class=\"pers_info\"><span class=\"info_tag\">Country</span>".$new['country']."</div>
-                                  <div class=\"pers_info\"><span class=\"info_tag\">City</span>".$new['city']."</div>
-                                  <div class=\"pers_info\"><span class=\"info_tag\">Status</span>".$new['status']."</div>
+                                  <div class=\"pers_info\"><span class=\"info_tag\">Birth Date</span>  <span data-tesname='test' class=\"p_edit\"  id=\"bday\">" 
+                                        .$bday."</span> <span class=\"p_edit\" id=\"bmonth\">".$bmonth."</span></div>
+                                  <div class=\"pers_info\"><span class=\"info_tag\">Year of Birth</span><span data-tesname='test' class=\"p_edit\"  id=\"byear\">"
+                                        .$byear."</span></div>
+                                  <div class=\"pers_info\"><span class=\"info_tag\">Gender</span>  <span class=\"p_edit\" id=\"gender\">".$gender."</span></div>
+                                  <div class=\"pers_info\"><span class=\"info_tag\">Country</span>  <span class=\"p_edit\" id=\"country\">".$new['country']."</span></div>
+                                  <div class=\"pers_info\"><span class=\"info_tag\">City</span>  <span class=\"p_edit\" id=\"city\">".$new['city']."</span></div>
+                                  <div class=\"pers_info\"><span class=\"info_tag\">Status</span>  <span class=\"p_edit\" id=\"status\">".$new['status']."</span></div>
                               </div>
                           </div>
                           </div>";

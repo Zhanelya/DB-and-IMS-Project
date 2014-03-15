@@ -103,6 +103,9 @@ http://www.windowsazure.com/en-us/documentation/articles/web-sites-php-mysql-dep
   <script type="text/x-handlebars" id="profile">
     <h3>My profile</h3>  
     <div id="profileBlock"></div>
+    <button onclick="edit_profile();">Edit</button>
+    <button onclick="save_profile();">Save</button>
+    <div id="profile_save_msg"></div>
   </script>
   
   <script type="text/x-handlebars" id="p_profile">

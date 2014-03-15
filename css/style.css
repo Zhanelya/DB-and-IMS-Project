@@ -108,3 +108,22 @@ a:hover{
    font-weight:800;
    color:#abcdef;
 }
+[contenteditable]{margin:2px;background:#f9f9f9;border:solid #999999 1px;}
+[contenteditable]:hover:after {
+  content: ' click to edit';
+  font-style: italic;
+  font-size: 12px;
+  font-family: sans-serif;
+  color: #ccc;
+  .text-stroke(0);
+}
+[contenteditable]:hover, [contenteditable]:focus {
+  background: #FFFFD3;
+}
+[contenteditable]:focus {
+  padding: 2px;
+  content: 'Hello World';
+}
+[contenteditable]:focus:after {
+  content: '';
+}
