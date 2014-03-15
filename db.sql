@@ -45,8 +45,7 @@ INSERT INTO activity_category VALUES (5, "Photo");
 CREATE TABLE IF NOT EXISTS message(sender_id INT NOT NULL, PRIMARY KEY(sender_id, recipient_id, timestmp), 
                                    recipient_id INT NOT NULL, timestmp DATETIME, conversation_id INT, msg VARCHAR(1000));
 
-CREATE TABLE IF NOT EXISTS blog (id INT NOT NULL AUTO_INCREMENT, PRIMARY KEY(id), acc_id INT);
-CREATE TABLE IF NOT EXISTS post (blog_id INT NOT NULL , PRIMARY KEY(blog_id, timestmp), timestmp DATETIME, post VARCHAR(2000));
+CREATE TABLE IF NOT EXISTS post (acc_id INT NOT NULL , post_id INT NOT NULL, PRIMARY KEY(acc_id), timestmp DATETIME, title VARCHAR(50), post VARCHAR(2000));
 
 CREATE TABLE IF NOT EXISTS album(id INT NOT NULL AUTO_INCREMENT, PRIMARY KEY(id), acc_id INT, name VARCHAR(30), privacy_id INT);
 

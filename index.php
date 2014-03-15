@@ -45,7 +45,8 @@ http://www.windowsazure.com/en-us/documentation/articles/web-sites-php-mysql-dep
               <li>{{#link-to 'messages'}}Messages{{/link-to}}</li>
               <li>{{#link-to 'photos'}}Photos{{/link-to}}</li>
               <li>{{#link-to 'friends'}}Friends{{/link-to}}</li>
-              <li>{{#link-to 'circles'}}Circles{{/link-to}}</li>"
+              <li>{{#link-to 'circles'}}Circles{{/link-to}}</li>
+              <li>{{#link-to 'posts'}}Posts{{/link-to}}</li>"
             ?>
             </ul>
         </nav>
@@ -131,9 +132,72 @@ http://www.windowsazure.com/en-us/documentation/articles/web-sites-php-mysql-dep
     <h3>Circles</h3>  
   </script>
   
+ <script type="text/x-handlebars" id="posts">
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+          <table class='table'>
+            <thead>
+              <tr><th>Recent Posts</th></tr>
+            </thead>
+            {{#each model}}
+            <tr><td>
+                {{#link-to 'post' this}}{{title}} <small class='muted'>by {{author.name}}</small>{{/link-to}}
+            </td></tr>
+            {{/each}}
+          </table>
+        </div>
+        <div class="span9">
+          {{outlet}}
+        </div>
+      </div>
+    </div>
+  </script>
+
+ <script type="text/x-handlebars" id="posts/index">
+    <p class="text-warning">Please select a post</p>
+  </script>
+
+  <script type="text/x-handlebars" id="post">
+    {{#if isEditing}}
+      {{partial 'post/edit'}}
+      <button {{action 'doneEditing'}}>Done</button>
+    {{else}}
+      <button {{action 'edit'}}>Edit</button>
+    {{/if}}
+
+    <h1>{{title}}</h1>
+    <h2>by {{author.name}} <small class='muted'>({{format-date date}})</small></h2>
+
+    <hr>
+
+    <div class='intro'>
+      {{format-markdown excerpt}}
+    </div>
+
+    <div class='below-the-fold'>
+      {{format-markdown body}}
+    </div>
+  </script>
+
+  <script type="text/x-handlebars" id="post/_edit">
+    <p>{{input type="text" value=title}}</p>
+    <p>{{input type="text" value=excerpt}}</p>
+    <p>{{textarea value=body}}</p>
+  </script>
+
+
+
+
+
+
+
+  
   <script src="js/libs/jquery-1.10.2.js"></script>
   <script src="js/libs/handlebars-1.1.2.js"></script>
   <script src="js/libs/ember-1.3.2.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.1.0/moment.min.js"></script>
   <script src="js/app.js"></script>
   <!-- to activate the test runner, add the "?test" query string parameter -->
   <script src="tests/runner.js"></script>
