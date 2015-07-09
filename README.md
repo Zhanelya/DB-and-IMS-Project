@@ -1,4 +1,4 @@
-comp3013_group9
+DB and IMS
 ===============
 
-COMP3013 Database &amp; IMS Group Project
+COMP3013 Database &amp; Information Management System Project. The aim of the project was to create a social networking website.
